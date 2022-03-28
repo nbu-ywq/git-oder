@@ -42,7 +42,7 @@ git 命令
   git checkout -b new_branch_name   	//新建分支 并切换到分支
   git branch -d branch_name   		//删除指定分支
   git merge branch   		 	//合并分支（在主分支下合并）
-  git branch -M/m old_branch_name 	//给分支重命名
+  git branch -M/m new_branch_name 	//给分支重命名
 
 //分支push与pull操作
   git branch -a  			//查看本地和远程分支
