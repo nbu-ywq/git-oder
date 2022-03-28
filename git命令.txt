@@ -1,0 +1,63 @@
+本地仓库操作
+git 命令
+  //设置配置
+  git config --global user.name 'nub-ywq'
+  git config --global user.email '15824519317@163.com'
+  git init                    	           //初始化本地仓库
+  git add ‘文件名’             //从工作区提交到暂存区
+  git commit -m ‘描述’     //从暂存区提交到本地仓库
+  git config --list                  //显示配置信息
+
+  git log                                //显示提交日志
+  git log -n --pretty=oneline //显示n个日志操作，每个日志只显示一行
+  git status                            //查看状态
+  
+  git diff HEAD -- ‘文件名’   //显示文件变动
+  git reset HEAD                     //撤销暂存区文件
+  git reset --hard HEAD^       //回退上一个版本
+  git reset --hard HEAD~n     //回退上n个版本
+  git reset --hard 版本标识符  //跳到想要版本
+  git reflog                            //查看之前日志
+  git checkout -- ‘文件名’  //在本地仓库拉取文件
+  git rm ‘文件名’               //删除本地仓库文件
+  git ls-files                          //查看本地仓库文件
+  
+
+//远程仓库操作
+  git clone 仓库地址   //下载代码
+  git push                 //上传文件
+  //https上传本地库
+  git remote add 别名 https://github.com/nbu-ywq/git.git
+  git push -u 别名 分支名
+  
+  //ssh上传本地库
+  ssh -keygen -t rsa -C "邮箱账号"  	//生成ssh密钥
+  ssh -T git@github.com   		//检查是否连接成功
+
+  git remote add 别名 git@github.com:nbu-ywq/git.git
+  git push -u 别名 分支名
+
+//git分支操作
+  git checkout branch_name  		//切换到指定分支
+  git checkout -b new_branch_name   	//新建分支 并切换到分支
+  git branch -d branch_name   		//删除指定分支
+  git merge branch   		 	//合并分支（在主分支下合并）
+  git branch -M/m old_branch_name 	//给分支重命名
+
+//分支push与pull操作
+  git branch -a  			//查看本地和远程分支
+  git push 别名 branch_name 		//推送本地分支到远程
+  git push 别名 :remote_branch_name 	//删除远程分支
+  git checkout -b local_branch_name 别名/remote_branch_name  //拉取远程分支并在本地创建分支 
+  git fetch  	//读取远程库状态
+
+//解决冲突，最好每次push代码前先pull最新代码
+
+//标签管理
+  git tag tag_name    		//新建标签，默认为HEAD
+  git tag -a tag_name -m '描述’ 	//添加指定标签描述
+  git tag    			//查看所有标签
+  git tag -d tag_name  		//删除本地标签
+  git push 别名 tag_name 	 	//推送标签到远程
+  git push 别名 --tags     		//推送所以未推送的本地标签
+  git push 别名 :refs/tags/tag_name   	//删除一个远程标签
